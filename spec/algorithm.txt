@@ -1,0 +1,12 @@
+ - load a Dictionary of words /
+ - pick a random word from the Dictionary /
+ - ask the user to guess a letter /
+ - retrieve the letter entered 
+ - pass the letter back to the model?
+ - check whether the letter guessed is in the hidden word
+ 	- if the letter is in the word, reveal that letter (in place) in the word
+		- if the hidden word is now revealed, end the Game
+	- if the letter is not in the word, increment incorrect_guesses and add the letter to the list of incorrect guesses
+		- add a piece to the hangman picture
+	- if the hangman is now hanged, end the Game
+- if the Game isn't over, ask the user to make another guess

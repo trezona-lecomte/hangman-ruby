@@ -1,0 +1,1 @@
+GameController.new.start_game
