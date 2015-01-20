@@ -19,8 +19,6 @@ describe ConsoleUI do
     end
   end
 
-  # TODO: find out how to test the 'block' of console output.
-  # Note: this method is working as expected, just not the test.
   describe "#show_obfuscated_word" do
     context "when called" do        
       before do
