@@ -29,5 +29,4 @@ describe ConsoleUI do
       end
     end
   end
-  
 end

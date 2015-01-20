@@ -40,5 +40,4 @@ class Word
 			hidden == guessed ? hidden : obfuscated
 		end
 	end
-
 end

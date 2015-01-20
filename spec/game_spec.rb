@@ -54,18 +54,18 @@ describe Game do
     end
   end
 
-  describe "#won?" do
+  describe "#won" do
     context "when the game has just started" do
       it "is false" do
-        expect(game.won?).to be false
+        expect(game.won).to be false
       end
     end
   end
 
-  describe "#lost?" do
+  describe "#lost" do
     context "when the game has just started" do
       it "is false" do
-        expect(game.lost?).to be false
+        expect(game.lost).to be false
       end
     end
   end

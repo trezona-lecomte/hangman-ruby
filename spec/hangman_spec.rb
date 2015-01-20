@@ -39,6 +39,3 @@ describe Hangman do
   end
   
 end
-
-# The describe method creates an instance of Behaviour
-# The it method returns an instance of Example
