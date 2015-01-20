@@ -1,4 +1,3 @@
-require_relative '../lib/letter'
 require_relative '../lib/word'
 require_relative '../lib/dictionary'
 require_relative '../lib/hangman'
