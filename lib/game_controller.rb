@@ -8,25 +8,29 @@ class GameController
   def initialize
     @game = Game.new
     @view = ConsoleUI.new
+    @view.welcome
   end
 
   def run_game
-    @view.welcome
-    until game_over? main_game_loop
+    until game_over? 
+      main_game_loop
     end
   end
 
   def main_game_loop
     @view.show_obfuscated_word(game.word)
     @view.prompt_for_guess
-    @game.guess(@view.capture_guess)
+    guessed_letter = @view.capture_guess
+    if @game.valid_guess?(guessed_letter)
+      @game.guess(guessed_letter)
+    end
   end
 
   def game_over?
-    if game.won?
+    if game.won
       @view.congratulate
       true
-    elsif game.lost?
+    elsif game.lost
       @view.commiserate
       true
     else
