@@ -6,14 +6,13 @@ class GameController
   attr_reader :view
 
   def initialize
+    @game = Game.new
+    @view = ConsoleUI.new
   end
 
   def run_game
-    @game = Game.new
-    @view = ConsoleUI.new
     @view.welcome
-    until game_over?
-      main_game_loop
+    until game_over? main_game_loop
     end
   end
 
