@@ -2,12 +2,13 @@ require 'spec_helper'
 require 'active_support/core_ext/kernel/reporting'
 
 describe ConsoleUI do
-  let(:console) {ConsoleUI.new}
+  let(:console) { ConsoleUI.new }
+  let(:word) { Word.new('test') }
 
   describe "#capture_guess" do
-    context "when the user has entered a guess" do
+    context "when the user has entered 'a'" do
       before do
-        $stdin = StringIO.new( "a" )
+        $stdin = StringIO.new( 'a' )
       end
       after do
         $stdin = STDIN
@@ -20,14 +21,15 @@ describe ConsoleUI do
 
   # TODO: find out how to test the 'block' of console output.
   # Note: this method is working as expected, just not the test.
-  # describe "#show_obfuscated_word" do
-  #   context "when called" do
-  #     it "displays the word with nils as underscores" do
-  #       word = Word.new( "test" )
-  #       word.guess_letter( "e" )
-  #       expect( console.show_obfuscated_word( word ) ).to be_a( StringIO )
-  #     end
-  #   end
-  # end
+  describe "#show_obfuscated_word" do
+    context "when called" do        
+      before do
+          word.guess_letter( "e" )
+      end
+      it "displays the word with nils as underscores" do
+        expect( console.show_obfuscated_word( word ) ).to eq("_ e _ _ ")
+      end
+    end
+  end
   
 end

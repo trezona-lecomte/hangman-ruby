@@ -1,13 +1,11 @@
 class ConsoleUI
-  
-  WELCOME_MESSAGE = "Welcome to hangman!"
-  PROMPT_MESSAGE = "Please enter a letter to guess:"
+  WELCOME_MESSAGE = 'Welcome to hangman!'
+  PROMPT_MESSAGE = 'Please enter a letter to guess:'
   CONGRATULATE_MESSAGE = "Congratulations!!! You've won the game."
   COMMISERATE_MESSAGE = "Aww no, you've hanged the man!"
 
-  @obfuscated_word
-
 	def initialize
+    @word_for_display = ''
 	end
 
   def welcome
@@ -25,12 +23,13 @@ class ConsoleUI
   def show_obfuscated_word(word)
     word.obfuscated_letters.each do |letter|
       if letter.nil?
-        print( "_ " )
+        @word_for_display = "#{@word_for_display}_ "
       else
-        print( letter)
+        @word_for_display = "#{@word_for_display}#{letter} "
       end
     end
-    print "\n"
+    print "#{@word_for_display}\n"
+    @word_for_display
   end
 
   def congratulate
