@@ -1,12 +1,15 @@
 require 'spec_helper'
 
-describe GameController do 
+describe GameController do
   let(:controller) { GameController.new }
 
-  describe "#initialize" do
-    context "when the controller has been created" do
-      it "hasn't got a game yet" do
-        expect(controller.game).to eq( nil )
+  describe '#intialize' do
+    context 'when called' do
+      it 'creates a new game' do
+        expect(controller.game).to be_a(Game)
+      end
+      it 'creates a new view' do
+        expect(controller.view).to be_a(ConsoleUI)
       end
     end
   end
