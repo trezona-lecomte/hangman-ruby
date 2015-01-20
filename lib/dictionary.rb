@@ -2,7 +2,7 @@ class Dictionary
 
 	def initialize
     @words = []
-    IO.foreach("spec/fixtures/words.txt") {|word| @words.push(word.chomp) }
+    IO.foreach("../spec/fixtures/words.txt") { |word| @words.push(word.chomp) }
 	end
   
   def number_of_words
@@ -11,6 +11,5 @@ class Dictionary
   
   def random_word
     @words.sample
-  end
-  
+  end  
 end
