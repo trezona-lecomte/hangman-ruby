@@ -20,24 +20,25 @@ class ConsoleUI
   end
 
   def show_obfuscated_word(word)
-    @word_for_display = ''
+    word_for_display = ''
     word.obfuscated_letters.each do |letter|
       if letter.nil?
-        @word_for_display = "#{ @word_for_display }_ "
+        word_for_display = "#{ word_for_display }_ "
       else
-        @word_for_display = "#{ @word_for_display }#{ letter } "
+        word_for_display = "#{ word_for_display }#{ letter } "
       end
     end
-    puts "#{ @word_for_display }\n"
-    @word_for_display
+    puts "#{ word_for_display }\n"
+    word_for_display
   end
 
   def show_hidden_word(word)
+    word_for_display = ''
     word.hidden_letters.each do |letter|
-      @word_for_display = "#{ @word_for_display }#{ letter } "
+      word_for_display = "#{ word_for_display }#{ letter } "
     end
-    puts @word_for_display
-    @word_for_display
+    puts word_for_display
+    word_for_display
   end
 
   def congratulate
