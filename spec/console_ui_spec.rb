@@ -8,13 +8,13 @@ describe ConsoleUI do
   describe "#capture_guess" do
     context "when the user has entered 'a'" do
       before do
-        $stdin = StringIO.new( 'a' )
+        $stdin = StringIO.new('a')
       end
       after do
         $stdin = STDIN
       end
       it "is 'a'" do
-        expect( console.capture_guess ).to eq( 'a' )
+        expect(console.capture_guess).to eq('a')
       end
     end
   end
@@ -22,10 +22,18 @@ describe ConsoleUI do
   describe "#show_obfuscated_word" do
     context "when called" do        
       before do
-          word.guess_letter( "e" )
+          word.guess_letter('e')
       end
       it "displays the word with nils as underscores" do
-        expect( console.show_obfuscated_word( word ) ).to eq("_ e _ _ ")
+        expect( console.show_obfuscated_word(word)).to eq('_ e _ _ ')
+      end
+    end
+  end
+
+  describe "#show_hidden_word" do
+    context "when called" do
+      it "displays the word in full without obfuscating it" do
+        expect( console.show_hidden_word(word)).to eq('t e s t ')
       end
     end
   end

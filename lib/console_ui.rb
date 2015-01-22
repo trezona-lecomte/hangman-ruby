@@ -1,8 +1,8 @@
 class ConsoleUI
   WELCOME_MESSAGE = "Welcome to hangman!\n"
   PROMPT_MESSAGE = "Please enter a letter to guess: "
-  CONGRATULATE_MESSAGE = "Congratulations!!! You've won the game.\n"
-  COMMISERATE_MESSAGE = "Aww no, you've hanged the man!\n"
+  CONGRATULATE_MESSAGE = "Congratulations!!! You've won the game.\nYou managed to guess:"
+  COMMISERATE_MESSAGE = "Aww no, you've hanged the man!\nThe word you were trying to guess was:"
 
 	def initialize
 	end
@@ -25,10 +25,18 @@ class ConsoleUI
       if letter.nil?
         @word_for_display = "#{ @word_for_display }_ "
       else
-        @word_for_display = "#{ @word_for_display }#{letter} "
+        @word_for_display = "#{ @word_for_display }#{ letter } "
       end
     end
     puts "#{ @word_for_display }\n"
+    @word_for_display
+  end
+
+  def show_hidden_word(word)
+    word.hidden_letters.each do |letter|
+      @word_for_display = "#{ @word_for_display }#{ letter } "
+    end
+    puts @word_for_display
     @word_for_display
   end
 
