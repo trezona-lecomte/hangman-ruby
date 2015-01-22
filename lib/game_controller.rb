@@ -29,9 +29,11 @@ class GameController
   def game_over?
     if game.won
       @view.congratulate
+      @view.show_hidden_word(game.word)
       true
     elsif game.lost
       @view.commiserate
+      @view.show_hidden_word(game.word)
       true
     else
       false
